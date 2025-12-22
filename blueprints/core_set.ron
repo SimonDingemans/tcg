@@ -1,0 +1,172 @@
+[
+    (
+        id: "core_set_001",
+        name: "Forest Wolf",
+        description: "A swift predator of the woodland.",
+        rarity: Common,
+        card_type: Creature(
+            power: 3, 
+            health: 3,
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Forest, 1),
+        ],
+        keywords: [
+            Intercept, // This creature can cause itself to become the target of an attack or spell targeting an adjacent ally.
+            Stealth( duration: Turns(1) ),
+        ], 
+    ),
+    (
+        id: "core_set_002",
+        name: "Mossy Bear",
+        description: "A hulking beast covered in thick moss that protects its territory.",
+        rarity: Common,
+        card_type: Creature(
+            power: 3, 
+            health: 5,
+        ),
+        cost: [
+            Neutral(2),
+            Specific(Forest, 1),
+        ],
+        keywords: [
+            Intercept,
+        ], 
+    ),
+    (
+        id: "core_set_003",
+        name: "Deepwood Stalker",
+        description: "A shadow-furred panther that strikes from the gloom.",
+        rarity: Uncommon,
+        card_type: Creature(
+            power: 3, 
+            health: 2,
+        ),
+        cost: [
+            Specific(Forest, 2),
+        ],
+        keywords: [
+            Stealth( duration: Permanent ),
+        ], 
+    ),
+    (
+        id: "core_set_004",
+        name: "Ancient Treant",
+        description: "It has stood watching over the forest since the first seed was sown.",
+        rarity: Rare,
+        card_type: Creature(
+            power: 6, 
+            health: 8,
+        ),
+        cost: [
+            Neutral(3),
+            Specific(Forest, 3),
+        ],
+        keywords: [
+            Intercept,
+        ], 
+    ),
+    (
+        id: "core_set_005",
+        name: "Thorn Spriggan",
+        description: "Small, sharp, and surprisingly deadly to unwary travelers.",
+        rarity: Common,
+        card_type: Creature(
+            power: 4, 
+            health: 1,
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Forest, 1),
+        ],
+        keywords: [
+            Stealth( duration: Turns(2) ),
+        ], 
+    ),
+    (
+        id: "core_set_006",
+        name: "Granite Guardian",
+        description: "A silent sentinel carved from living rock.",
+        rarity: Common,
+        card_type: Creature(
+            power: 2, 
+            health: 6,
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Mountain, 2),
+        ],
+        keywords: [
+            Intercept,
+        ], 
+    ),
+    (
+        id: "core_set_007",
+        name: "Crag Charger",
+        description: "A massive horned beast that shatters stone with its hooves.",
+        rarity: Common,
+        card_type: Creature(
+            power: 4, 
+            health: 3,
+        ),
+        cost: [
+            Neutral(2),
+            Specific(Mountain, 1),
+        ],
+        keywords: [
+            Crush,
+        ], 
+    ),
+    (
+        id: "core_set_008",
+        name: "Ember Whelp",
+        description: "A small drake that spits fire and soars on thermal currents.",
+        rarity: Uncommon,
+        card_type: Creature(
+            power: 3, 
+            health: 1,
+        ),
+        cost: [
+            Specific(Mountain, 2),
+        ],
+        keywords: [
+            Aerial,
+        ], 
+    ),
+    (
+        id: "core_set_009",
+        name: "Summit Roc",
+        description: "The undisputed lord of the highest peaks.",
+        rarity: Rare,
+        card_type: Creature(
+            power: 5, 
+            health: 4,
+        ),
+        cost: [
+            Neutral(2),
+            Specific(Mountain, 3),
+        ],
+        keywords: [
+            Aerial,
+            Crush,
+        ], 
+    ),
+    (
+        id: "core_set_010",
+        name: "Volcanic Colossus",
+        description: "Born from the eruption, it brings ruin in its wake.",
+        rarity: Epic,
+        card_type: Creature(
+            power: 8, 
+            health: 8,
+        ),
+        cost: [
+            Neutral(4),
+            Specific(Mountain, 4),
+        ],
+        keywords: [
+            Crush,
+        ], 
+    ),
+]
