@@ -1,5 +1,6 @@
+use crate::state::cards::entities::EntityHeap;
 use crate::state::players::player::PlayerState;
-use crate::state::{entities::EntityHeap, ids::IdManager};
+use crate::state::ids::IdManager;
 
 pub struct GameState {
     pub entities: EntityHeap,

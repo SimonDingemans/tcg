@@ -3,7 +3,7 @@ use std::collections::HashMap;
 mod domain;
 use domain::schema::CardBlueprint;
 
-use crate::{domain::schema::BlueprintId, state::engine::{GameEngine}};
+use crate::{domain::schema::BlueprintId, state::{engine::GameEngine, ids::InstanceId}};
 
 mod state;
 
@@ -32,23 +32,15 @@ fn main() {
 
 
     let mut game_engine = GameEngine::new(blueprints, player_ids);
+    game_engine.initialize().unwrap();
+    let p1_hand = game_engine.state.players[0].hand.list();
 
-    let instance_id = match game_engine.spawn_instance("forest_set_003".to_owned(), "Player".to_owned()) {
-        Some(id) => id,
-        None => return
-    };
-    
-    game_engine.add_to_battlefield(instance_id, "Player".to_owned(), 0);
-
-    let battlefield_ids = game_engine.state.players[0].battlefield.list();
-
-    println!("--- Battlefield Cards ---");
-    for id in battlefield_ids {
-        if let Some(blueprint) = game_engine.get_blueprint(*id) {
-            println!("Found Card: {}", blueprint.name);
-            println!("{:#?}", blueprint);
-        } else {
-            println!("Could not resolve blueprint for Instance ID: {:?}", id);
+    for (instance_id, amount) in p1_hand {
+        if let Some(card_instance) = game_engine.state.entities.get(*instance_id) {
+            if let Some(blueprint) = game_engine.get_blueprint(*instance_id) {
+                println!("Card Name: {}", blueprint.name);
+                println!("{:#?}", blueprint);
+            }
         }
     }
 }

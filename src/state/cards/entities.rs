@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::{domain::schema::{BlueprintId, CardValue}, state::ids::InstanceId, state::players::player::PlayerId};
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct CardInstance {
     pub id: InstanceId,
     pub blueprint_id: BlueprintId,

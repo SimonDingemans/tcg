@@ -22,6 +22,7 @@ pub enum PlayerError {
 
 pub struct PlayerState {
     pub id: PlayerId,
+    pub health: usize,
     pub mana: ManaPool,
     pub deck: Deck,
     pub hand: Hand,
@@ -32,6 +33,7 @@ pub struct PlayerState {
 impl PlayerState {
     pub fn new(
         id: PlayerId,
+        health: usize,
         deck: Deck,
         hand: Hand,
         battlefield_size: usize,
@@ -42,6 +44,7 @@ impl PlayerState {
 
         Self { 
             id, 
+            health,
             mana: mana_pool, 
             deck, 
             hand, 
