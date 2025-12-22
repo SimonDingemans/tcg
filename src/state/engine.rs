@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::{domain::schema::{BlueprintId, CardBlueprint}, state::{board::{GameState, PlayerId}, entities::CardInstance, ids::InstanceId}};
+use crate::{domain::schema::{BlueprintId, CardBlueprint, Environment}, state::{board::GameState, cards::{deck::Deck, hand::Hand}, entities::CardInstance, ids::InstanceId, players::player::{PlayerId, PlayerState}}};
 
 pub struct GameEngine {
     pub state: GameState,
@@ -8,12 +8,35 @@ pub struct GameEngine {
 }
 
 impl GameEngine {
+    pub const BATTLE_FIELD_SIZE: usize = 9;
+    pub const STARTING_HAND_SIZE: usize = 5;
+
     pub fn new(
         blueprints: HashMap<BlueprintId, CardBlueprint>,
         player_ids: [PlayerId; 2]
     ) -> Self {
+        let forest_deck = Deck::new(&blueprints, Environment::Forest);
+        let volcanic_deck = Deck::new(&blueprints, Environment::Volcano);
+
+        let players = [
+            PlayerState::new(
+                player_ids[0].clone(),
+                forest_deck,
+                Hand::new(Self::STARTING_HAND_SIZE),
+                Self::BATTLE_FIELD_SIZE,
+                50
+            ),
+            PlayerState::new(
+                player_ids[1].clone(),
+                volcanic_deck,
+                Hand::new(Self::STARTING_HAND_SIZE),
+                Self::BATTLE_FIELD_SIZE,
+                50
+            )
+        ];
+
         Self {
-            state: GameState::new(player_ids),
+            state: GameState::new(players),
             blueprints
         }
     }

@@ -10,6 +10,7 @@ pub struct CardBlueprint {
     pub id: BlueprintId,
     pub name: String,
     pub description: String,
+    pub domain: Environment,
     pub rarity: Rarity,
     pub card_type: CardType,
     pub cost: Vec<ManaCost>,
@@ -34,13 +35,13 @@ pub enum CardType {
 }
 
 #[derive(
-    Debug, Clone, Serialize, Deserialize, Copy,
+    Debug, Clone, Serialize, Deserialize, Copy, PartialEq,
     EnumCount, FromRepr, EnumIter 
 )]
 #[repr(u8)]
 pub enum Environment {
     Forest,
-    Mountain,
+    Volcano,
     Swamp,
     Plains,
     Island,

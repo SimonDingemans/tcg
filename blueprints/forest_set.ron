@@ -1,0 +1,92 @@
+[
+    (
+        id: "forest_set_001",
+        name: "Forest Wolf",
+        description: "A swift predator of the woodland.",
+        domain: Forest,
+        rarity: Common,
+        card_type: Creature(
+            power: 3, 
+            health: 3,
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Forest, 1),
+        ],
+        keywords: [
+            Intercept, // This creature can cause itself to become the target of an attack or spell targeting an adjacent ally.
+            Stealth( duration: Turns(1) ),
+        ], 
+    ),
+    (
+        id: "forest_set_002",
+        name: "Mossy Bear",
+        description: "A hulking beast covered in thick moss that protects its territory.",
+        domain: Forest,
+        rarity: Common,
+        card_type: Creature(
+            power: 3, 
+            health: 5,
+        ),
+        cost: [
+            Neutral(2),
+            Specific(Forest, 1),
+        ],
+        keywords: [
+            Intercept,
+        ], 
+    ),
+    (
+        id: "forest_set_003",
+        name: "Deepwood Stalker",
+        description: "A shadow-furred panther that strikes from the gloom.",
+        domain: Forest,
+        rarity: Uncommon,
+        card_type: Creature(
+            power: 3, 
+            health: 2,
+        ),
+        cost: [
+            Specific(Forest, 2),
+        ],
+        keywords: [
+            Stealth( duration: Permanent ),
+        ], 
+    ),
+    (
+        id: "forest_set_004",
+        name: "Ancient Treant",
+        description: "It has stood watching over the forest since the first seed was sown.",
+        domain: Forest,
+        rarity: Rare,
+        card_type: Creature(
+            power: 6, 
+            health: 8,
+        ),
+        cost: [
+            Neutral(3),
+            Specific(Forest, 3),
+        ],
+        keywords: [
+            Intercept,
+        ], 
+    ),
+    (
+        id: "forest_set_005",
+        name: "Thorn Spriggan",
+        description: "Small, sharp, and surprisingly deadly to unwary travelers.",
+        domain: Forest,
+        rarity: Common,
+        card_type: Creature(
+            power: 4, 
+            health: 1,
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Forest, 1),
+        ],
+        keywords: [
+            Stealth( duration: Turns(2) ),
+        ], 
+    ),
+]

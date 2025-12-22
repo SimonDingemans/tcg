@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::{domain::schema::{BlueprintId, CardValue}, state::{board::PlayerId, ids::InstanceId}};
+use crate::{domain::schema::{BlueprintId, CardValue}, state::ids::InstanceId, state::players::player::PlayerId};
 
 #[derive(Debug)]
 pub struct CardInstance {

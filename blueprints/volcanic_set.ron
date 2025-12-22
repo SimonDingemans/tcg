@@ -1,0 +1,92 @@
+[
+    (
+        id: "Volcano_set_001",
+        name: "Granite Guardian",
+        description: "A silent sentinel carved from living rock.",
+        domain: Volcano,
+        rarity: Common,
+        card_type: Creature(
+            power: 2, 
+            health: 6,
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Volcano, 2),
+        ],
+        keywords: [
+            Intercept,
+        ], 
+    ),
+    (
+        id: "Volcano_set_002",
+        name: "Crag Charger",
+        description: "A massive horned beast that shatters stone with its hooves.",
+        domain: Volcano,
+        rarity: Common,
+        card_type: Creature(
+            power: 4, 
+            health: 3,
+        ),
+        cost: [
+            Neutral(2),
+            Specific(Volcano, 1),
+        ],
+        keywords: [
+            Crush,
+        ], 
+    ),
+    (
+        id: "Volcano_set_003",
+        name: "Ember Whelp",
+        description: "A small drake that spits fire and soars on thermal currents.",
+        domain: Volcano,
+        rarity: Uncommon,
+        card_type: Creature(
+            power: 3, 
+            health: 1,
+        ),
+        cost: [
+            Specific(Volcano, 2),
+        ],
+        keywords: [
+            Aerial,
+        ], 
+    ),
+    (
+        id: "Volcano_set_004",
+        name: "Summit Roc",
+        description: "The undisputed lord of the highest peaks.",
+        domain: Volcano,
+        rarity: Rare,
+        card_type: Creature(
+            power: 5, 
+            health: 4,
+        ),
+        cost: [
+            Neutral(2),
+            Specific(Volcano, 3),
+        ],
+        keywords: [
+            Aerial,
+            Crush,
+        ], 
+    ),
+    (
+        id: "Volcano_set_005",
+        name: "Volcanic Colossus",
+        description: "Born from the eruption, it brings ruin in its wake.",
+        domain: Volcano,
+        rarity: Epic,
+        card_type: Creature(
+            power: 8, 
+            health: 8,
+        ),
+        cost: [
+            Neutral(4),
+            Specific(Volcano, 4),
+        ],
+        keywords: [
+            Crush,
+        ],
+    ),
+]
