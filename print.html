@@ -1,0 +1,657 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>TCG Project Documentation</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Documentation for the TCG project.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-592d9337.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-77e1e9f2.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">TCG Project Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/SimonDingemans/tcg" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Welcome to the official documentation for the TCG project.</p>
+<p>This documentation provides guides, architectural overviews, and other important information related to the development of this project.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="guides"><a class="header" href="#guides">Guides</a></h1>
+<p>This section provides high-level guides and development plans for the project.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tcg-tui-development-plan"><a class="header" href="#tcg-tui-development-plan">TCG TUI Development Plan</a></h1>
+<p>This document outlines the steps to build a Terminal User Interface (TUI) to mitigate the business risk of the project lacking a user-facing application.</p>
+<h2 id="step-1-incorporate-ui-libraries"><a class="header" href="#step-1-incorporate-ui-libraries">Step 1: Incorporate UI Libraries</a></h2>
+<p>Begin by integrating specialized libraries for terminal rendering and user input into the project’s dependency management system. These libraries provide the foundational tools for creating layouts, interface components, and handling user interactions, forming the building blocks of the TUI.</p>
+<h2 id="step-2-isolate-ui-code"><a class="header" href="#step-2-isolate-ui-code">Step 2: Isolate UI Code</a></h2>
+<p>To ensure a clean architecture, create a dedicated and separate module within the source code to house all TUI-related logic. This isolates the user interface from the core game engine. The application’s main entry point must be updated to initialize and launch this new UI module, making it the primary interface for the user.</p>
+<h2 id="step-3-develop-the-core-ui-loop"><a class="header" href="#step-3-develop-the-core-ui-loop">Step 3: Develop the Core UI Loop</a></h2>
+<p>Implement a central, continuous loop that serves as the heart of the interactive experience. On each iteration, this loop will be responsible for three key actions:</p>
+<ol>
+<li>Drawing all visual components to the screen.</li>
+<li>Polling for and processing any user input.</li>
+<li>Updating the TUI’s internal state, such as tracking the currently selected item.</li>
+</ol>
+<p>The application will exit this loop only when the user chooses to quit.</p>
+<h2 id="step-4-design-the-visual-layout"><a class="header" href="#step-4-design-the-visual-layout">Step 4: Design the Visual Layout</a></h2>
+<p>Define the logical structure of the user interface. This involves strategically dividing the screen space into distinct areas to display all relevant game information. Key areas should include:</p>
+<ul>
+<li>An area for the current player’s hand, battlefield, and resources.</li>
+<li>A similar area for the opponent’s visible game elements.</li>
+<li>A scrollable log to display the history of game events.</li>
+<li>An information panel to show details of a selected card or element.</li>
+<li>A status bar to show available commands and help information.</li>
+</ul>
+<h2 id="step-5-connect-game-state-to-visuals"><a class="header" href="#step-5-connect-game-state-to-visuals">Step 5: Connect Game State to Visuals</a></h2>
+<p>Establish a clear data flow from the core game engine to the TUI. The UI should act as a read-only visual representation of the game’s current state. When the game state changes (e.g., a card is drawn), the UI must automatically update to reflect that change. The TUI will also manage its own separate, view-specific state, such as which element is currently selected by the user, without altering the core game state directly.</p>
+<h2 id="step-6-implement-user-input-handling"><a class="header" href="#step-6-implement-user-input-handling">Step 6: Implement User Input Handling</a></h2>
+<p>Develop a system to capture and interpret keyboard inputs from the user. These inputs need to be translated into meaningful game actions. For example, using the arrow keys should change the selected card, and pressing a specific key should trigger the “play card” action. These action requests are then sent to the core game engine for validation and processing.</p>
+<h2 id="high-level-project-flow"><a class="header" href="#high-level-project-flow">High-Level Project Flow</a></h2>
+<ol>
+<li><strong>Integrate Dependencies:</strong> Add the required TUI libraries to the project.</li>
+<li><strong>Structure UI Module:</strong> Create an isolated module for all UI-related code.</li>
+<li><strong>Launch from Main:</strong> Update the application’s entry point to start the TUI.</li>
+<li><strong>Build Core Loop:</strong> Implement the main loop for drawing, input, and state updates.</li>
+<li><strong>Design Layout:</strong> Define the screen areas for all game components.</li>
+<li><strong>Render Game State:</strong> Implement the logic to visually represent the game data.</li>
+<li><strong>Handle Input:</strong> Implement the system for capturing and translating user commands.</li>
+<li><strong>Connect to Engine:</strong> Funnel user commands to the game engine for processing.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="game-concepts"><a class="header" href="#game-concepts">Game Concepts</a></h1>
+<p>This section of the documentation covers the core concepts of the trading card game, from the cards themselves to how they are used in decks.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="cards"><a class="header" href="#cards">Cards</a></h1>
+<p>Cards are the fundamental building blocks of the game. Each player builds a deck of cards to play with. All cards have a few things in common: a <code>name</code>, a <code>description</code>, a <code>domain</code> (the thematic and magical ‘color’ of the card), a <code>rarity</code>, and a <code>cost</code>.</p>
+<h2 id="card-types"><a class="header" href="#card-types">Card Types</a></h2>
+<p>There are four main types of cards in the game.</p>
+<h3 id="1-creatures"><a class="header" href="#1-creatures">1. Creatures</a></h3>
+<p>Creatures are the primary way to attack your opponent and defend yourself. They have <code>power</code> and <code>health</code> values.</p>
+<ul>
+<li><strong>Power</strong>: The amount of damage a creature deals in combat.</li>
+<li><strong>Health</strong>: The amount of damage a creature can sustain before it is defeated and sent to the graveyard.</li>
+</ul>
+<h3 id="2-lands"><a class="header" href="#2-lands">2. Lands</a></h3>
+<p>Lands are the source of magical resources in the game. They do not typically have a casting cost. Once per turn, a player can play a Land card from their hand.</p>
+<p>Each Land card specifies which <code>resource</code> (or “mana”) it produces and the <code>amount</code>. For example, a “Volcanic Vent” produces 1 <code>Volcano</code> resource.</p>
+<h3 id="3-spells"><a class="header" href="#3-spells">3. Spells</a></h3>
+<p>Spells have a one-time effect when they are played. The specific effect is detailed in the card’s <code>action</code>. Examples of spell actions include:</p>
+<ul>
+<li><strong>Damage</strong>: Deals a certain amount of damage to a target (e.g., a creature or player).</li>
+<li><strong>Heal</strong>: Restores health to a target.</li>
+<li><strong>ModifyStats</strong>: Temporarily or permanently changes a creature’s power and/or health.</li>
+<li><strong>GrantKeyword</strong>: Gives a creature a new keyword for a specific duration.</li>
+</ul>
+<p>Spells can be “slow” (Sorcery speed) or “fast” (Instant speed). A spell with the <strong>Quick</strong> keyword can be played at any time, even during your opponent’s turn. Spells without this keyword can only be played during your own main turn phase.</p>
+<h3 id="4-artifacts"><a class="header" href="#4-artifacts">4. Artifacts</a></h3>
+<p>Artifacts are persistent cards that remain on the battlefield and provide a continuous effect or an activated ability.</p>
+<ul>
+<li><strong>Static Artifacts</strong>: These provide a passive effect that is always active while the artifact is on the battlefield. For example, an artifact might give all of your creatures +1 power.</li>
+<li><strong>Activated Artifacts</strong>: These have an ability that you can use by paying a specified resource cost. For example, an artifact might allow you to pay 2 mana to heal a creature.</li>
+</ul>
+<h2 id="keywords"><a class="header" href="#keywords">Keywords</a></h2>
+<p>Keywords are shorthand for common abilities that cards can have.</p>
+<ul>
+<li><strong>Intercept</strong>: This creature can choose to become the target of an attack directed at an adjacent allied creature.</li>
+<li><strong>Stealth</strong>: This creature cannot be targeted by attacks or spells for a certain duration.</li>
+<li><strong>Crush</strong>: When this creature attacks, any excess damage beyond the defending creature’s health is dealt to the opponent.</li>
+<li><strong>Aerial</strong>: This creature can only be blocked by other creatures with Aerial.</li>
+<li><strong>Quick</strong>: This spell or ability can be played at “Instant” speed, meaning you can play it at any time, including during your opponent’s turn.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="decks"><a class="header" href="#decks">Decks</a></h1>
+<p>A deck is a collection of cards that a player uses to play the game. Before a game begins, each player must have a pre-built deck.</p>
+<h2 id="deckbuilding"><a class="header" href="#deckbuilding">Deckbuilding</a></h2>
+<p>While the game engine does not yet enforce strict deckbuilding rules, here are the general principles and intended guidelines for constructing a deck:</p>
+<ul>
+<li><strong>Deck Size</strong>: A deck should typically consist of a fixed number of cards (between 30 and 60).</li>
+<li><strong>Card Copies</strong>: Players are usually limited to a maximum number of copies of any single card (e.g., no more than 4 copies of a card with the same name).</li>
+<li><strong>Domains</strong>: A player can choose to build a deck with cards from a single <code>domain</code> (e.g., a “mono-Volcano” deck) or combine cards from multiple domains. Building a deck with multiple domains gives you more flexibility, but it can be harder to consistently draw the right resources to play your cards.</li>
+</ul>
+<p>A well-constructed deck has a good “mana curve” - a balanced mix of low-cost cards that can be played in the early game and high-cost, powerful cards for the late game. It should also have a clear strategy, whether that’s overwhelming the opponent with aggressive creatures, controlling the board with spells, or assembling a powerful combination of cards.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="requirements"><a class="header" href="#requirements">Requirements</a></h1>
+<p>This section contains the user stories and requirements that drive the development of the TCG project. They are broken down by epic.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-1-card-blueprint-system"><a class="header" href="#feature-1-card-blueprint-system">Feature 1: Card Blueprint System</a></h1>
+<h2 id="user-story-11-load-card-blueprints"><a class="header" href="#user-story-11-load-card-blueprints">User Story 1.1: Load Card Blueprints</a></h2>
+<p><strong>As a</strong> game designer<br><strong>I want</strong> to define cards in RON files<br><strong>So that</strong> I can easily add new cards without code changes</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> RON files define card properties:
+<ul>
+<li>[ x ] ID, Name, Description</li>
+<li>[ x ] Mana cost (neutral + domain-specific)</li>
+<li>[ x ] Card type (Creature, Spell, Artifact)</li>
+<li>[ x ] For creatures: Power, Health</li>
+<li>[ x ] Keywords and abilities</li>
+<li>[ x ] Rarity (Common, Uncommon, Rare, Epic, Legendary)</li>
+<li>[ x ] Domain (Forest, Volcano, etc.)</li>
+</ul>
+</li>
+<li>[ x ] Load blueprints at game startup</li>
+<li>[ x ] Cache blueprints in memory</li>
+<li>[ x ] Support multiple sets (Forest, Volcanic)</li>
+<li>[ x ] Validate blueprint structure</li>
+</ul>
+<h2 id="user-story-12-create-card-variants"><a class="header" href="#user-story-12-create-card-variants">User Story 1.2: Create Card Variants</a></h2>
+<p><strong>As a</strong> game designer<br><strong>I want</strong> to define multiple card rarities<br><strong>So that</strong> card pool diversity is supported</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><del>[ ] Each card can have multiple rarity versions</del>
+<ul>
+<li>Will be done in a later iteration</li>
+</ul>
+</li>
+<li><del>[ ] Different rarities may have different stats/costs</del>
+<ul>
+<li>Will be done in a later iteration</li>
+</ul>
+</li>
+<li>[ x ] Deck building respects rarity limits if applicable</li>
+<li>[ x ] Blueprints store rarity information</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-2-card-zones--state-management"><a class="header" href="#feature-2-card-zones--state-management">Feature 2: Card Zones &amp; State Management</a></h1>
+<h2 id="user-story-21-manage-card-zones"><a class="header" href="#user-story-21-manage-card-zones">User Story 2.1: Manage Card Zones</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> cards to move between different zones<br><strong>So that</strong> game state accurately reflects card positions</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Hand</strong>: Cards waiting to be played (max configurable)</li>
+<li><input disabled="" type="checkbox"> <strong>Deck</strong>: Cards not yet drawn (supports draw mechanics)</li>
+<li><input disabled="" type="checkbox"> <strong>Battlefield</strong>: Active creatures in play (max 9 slots)</li>
+<li><input disabled="" type="checkbox"> <strong>Graveyard</strong>: Destroyed or discarded cards</li>
+<li><input disabled="" type="checkbox"> Cards maintain unique IDs across zone transitions</li>
+<li><input disabled="" type="checkbox"> Query cards by zone efficiently</li>
+</ul>
+<h2 id="user-story-22-draw-cards-from-deck"><a class="header" href="#user-story-22-draw-cards-from-deck">User Story 2.2: Draw Cards from Deck</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to draw cards from my deck each turn<br><strong>So that</strong> I have fresh options to play</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Draw 1 card at start of turn</li>
+<li><input disabled="" type="checkbox"> Move card from deck to hand</li>
+<li><input disabled="" type="checkbox"> Handle deck mill (no cards left):
+<ul>
+<li><input disabled="" type="checkbox"> Implement mill damage (1 damage per card drawn when deck empty)</li>
+<li><input disabled="" type="checkbox"> Optionally: Player loses game if milled</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> Maximum hand size enforcement (suggest 10 cards)</li>
+<li><input disabled="" type="checkbox"> Discard excess cards if hand size exceeded</li>
+</ul>
+<h2 id="user-story-23-manage-card-instances"><a class="header" href="#user-story-23-manage-card-instances">User Story 2.3: Manage Card Instances</a></h2>
+<p><strong>As a</strong> developer<br><strong>I want</strong> to track individual card instances separately from blueprints<br><strong>So that</strong> cards maintain unique state and identity</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Each card instance has unique ID</li>
+<li><input disabled="" type="checkbox"> Card instances track current health/state</li>
+<li><input disabled="" type="checkbox"> Card instances link to blueprint for immutable properties</li>
+<li><input disabled="" type="checkbox"> Support querying cards by ID, zone, or type</li>
+<li><input disabled="" type="checkbox"> Efficiently manage large numbers of cards</li>
+</ul>
+<hr>
+<h2 id="user-story-24-visualize-card-zones-in-tui"><a class="header" href="#user-story-24-visualize-card-zones-in-tui">User Story 2.4: Visualize Card Zones in TUI</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to see all game zones clearly in the TUI<br><strong>So that</strong> I have a complete overview of the game state.</p>
+<p><strong>TUI Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Render distinct, clearly labeled panels for the player’s and opponent’s battlefield.</li>
+<li><input disabled="" type="checkbox"> The player’s hand should be visible and selectable.</li>
+<li><input disabled="" type="checkbox"> The opponent’s hand should be visible as a count of cards.</li>
+<li><input disabled="" type="checkbox"> Display the number of cards remaining in each player’s deck.</li>
+<li><input disabled="" type="checkbox"> Display the number of cards in each player’s graveyard.</li>
+<li><input disabled="" type="checkbox"> Implement a way to view the contents of the graveyard (e.g., by selecting it and opening a new list view).</li>
+<li><input disabled="" type="checkbox"> The TUI must update all relevant zone displays whenever a card moves (e.g., from Deck to Hand, Hand to Battlefield, Battlefield to Graveyard).</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-3-resource-management"><a class="header" href="#feature-3-resource-management">Feature 3: Resource Management</a></h1>
+<h2 id="user-story-31-manage-player-resources"><a class="header" href="#user-story-31-manage-player-resources">User Story 3.1: Manage Player Resources</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to generate and spend resources to play cards<br><strong>So that</strong> resource management becomes a strategic element</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Each player generates resources per turn (mana pool)</li>
+<li><input disabled="" type="checkbox"> Resources have multiple types (Neutral, Forest, Volcano, etc.)</li>
+<li><input disabled="" type="checkbox"> Resources refresh at start of turn</li>
+<li><input disabled="" type="checkbox"> Resources are consumed when playing cards</li>
+<li><input disabled="" type="checkbox"> Display available resources to player</li>
+<li><input disabled="" type="checkbox"> Prevent playing cards without sufficient resources</li>
+</ul>
+<h2 id="user-story-32-track-domain-resources"><a class="header" href="#user-story-32-track-domain-resources">User Story 3.2: Track Domain Resources</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> domain-specific resources to be tracked separately<br><strong>So that</strong> cards have meaningful mana costs</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Support multiple resource domains (Forest, Volcano)</li>
+<li><input disabled="" type="checkbox"> Cards specify resource requirements by domain</li>
+<li><input disabled="" type="checkbox"> Neutral resources count toward any cost</li>
+<li><input disabled="" type="checkbox"> Validate both total and domain-specific resources before play</li>
+<li><input disabled="" type="checkbox"> Visual feedback for available resources</li>
+</ul>
+<hr>
+<h2 id="user-story-33-view-resources-in-tui"><a class="header" href="#user-story-33-view-resources-in-tui">User Story 3.3: View Resources in TUI</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to clearly see my available resources in the TUI<br><strong>So that</strong> I can make informed decisions about playing cards.</p>
+<p><strong>TUI Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Display the current player’s resources in a dedicated, always-visible panel.</li>
+<li><input disabled="" type="checkbox"> The resource display should update immediately when resources are generated or spent.</li>
+<li><input disabled="" type="checkbox"> Use colors or symbols to differentiate between various resource domains (e.g., green for Forest, red for Volcano, grey for Neutral).</li>
+<li><input disabled="" type="checkbox"> The display should be clear and easy to read at a glance.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-4-game-initialization--setup"><a class="header" href="#feature-4-game-initialization--setup">Feature 4: Game Initialization &amp; Setup</a></h1>
+<h2 id="user-story-41-start-a-new-game"><a class="header" href="#user-story-41-start-a-new-game">User Story 4.1: Start a New Game</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to initialize a new game with two players<br><strong>So that</strong> we can begin playing a match</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>[ x ] Load card blueprints from RON files (Forest and Volcano sets)</li>
+<li>[ x ] Initialize two players with starting values:
+<ul>
+<li>[ x ] Health: 50 HP</li>
+<li>[ x ] Draw 5 cards into hand from deck</li>
+<li>[ x ] Empty battlefield</li>
+<li>[ x ] Empty graveyard</li>
+</ul>
+</li>
+<li>[ x ] Set game state to active</li>
+<li>[ x ] Determine starting player (player 1 or random)</li>
+</ul>
+<h2 id="user-story-42-create-player-decks"><a class="header" href="#user-story-42-create-player-decks">User Story 4.2: Create Player Decks</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to build a deck from available cards<br><strong>So that</strong> I can customize my playstyle</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Support minimum deck size of 30 cards</li>
+<li><input disabled="" type="checkbox"> Support maximum deck size of 60 cards</li>
+<li><input disabled="" type="checkbox"> Validate deck composition rules</li>
+<li><input disabled="" type="checkbox"> Store deck configuration with player profile</li>
+<li><input disabled="" type="checkbox"> Support multiple pre-built decks (Forest, Volcano)</li>
+</ul>
+<hr>
+<h2 id="user-story-43-view-game-setup-in-tui"><a class="header" href="#user-story-43-view-game-setup-in-tui">User Story 4.3: View Game Setup in TUI</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to see the game board and initial state in the TUI<br><strong>So that</strong> I can understand the starting layout of the match.</p>
+<p><strong>TUI Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Display a main menu with options to “Start Game” and “Quit”.</li>
+<li><input disabled="" type="checkbox"> On game start, render the main game screen.</li>
+<li><input disabled="" type="checkbox"> Display both players’ starting health.</li>
+<li><input disabled="" type="checkbox"> Render each player’s hand, showing the back of the cards for the opponent and the front for the player.</li>
+<li><input disabled="" type="checkbox"> Display the number of cards in each player’s deck and graveyard.</li>
+<li><input disabled="" type="checkbox"> Clearly indicate which player is taking the first turn.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-5-turn-system--player-actions"><a class="header" href="#feature-5-turn-system--player-actions">Feature 5: Turn System &amp; Player Actions</a></h1>
+<h2 id="user-story-51-execute-turn-sequence"><a class="header" href="#user-story-51-execute-turn-sequence">User Story 5.1: Execute Turn Sequence</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to take my turn in a structured sequence<br><strong>So that</strong> gameplay is fair and predictable</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Begin turn phase:
+<ul>
+<li><input disabled="" type="checkbox"> Refresh available resources</li>
+<li><input disabled="" type="checkbox"> Draw one card from deck</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> Main phase:
+<ul>
+<li><input disabled="" type="checkbox"> Play cards from hand (costs permitting)</li>
+<li><input disabled="" type="checkbox"> Attack with creatures on battlefield</li>
+<li><input disabled="" type="checkbox"> Play spell cards</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> End turn phase:
+<ul>
+<li><input disabled="" type="checkbox"> Finalize all pending actions</li>
+<li><input disabled="" type="checkbox"> Pass turn to opponent</li>
+</ul>
+</li>
+</ul>
+<h2 id="user-story-52-play-cards-from-hand"><a class="header" href="#user-story-52-play-cards-from-hand">User Story 5.2: Play Cards from Hand</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to play cards from my hand to the battlefield or as spells<br><strong>So that</strong> I can develop my board state</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Validate player has sufficient resources (mana)</li>
+<li><input disabled="" type="checkbox"> Validate target zone has available slots (max 9 creatures)</li>
+<li><input disabled="" type="checkbox"> Move card from hand to appropriate zone</li>
+<li><input disabled="" type="checkbox"> Deduct resource cost from player pool</li>
+<li><input disabled="" type="checkbox"> Update card instance with battlefield status</li>
+</ul>
+<hr>
+<h2 id="user-story-53-interact-with-turns-and-cards-in-tui"><a class="header" href="#user-story-53-interact-with-turns-and-cards-in-tui">User Story 5.3: Interact with Turns and Cards in TUI</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to see whose turn it is and play cards via the TUI<br><strong>So that</strong> I can perform my basic actions.</p>
+<p><strong>TUI Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Clearly highlight the currently active player.</li>
+<li><input disabled="" type="checkbox"> The TUI should update automatically when a card is drawn at the start of a turn.</li>
+<li><input disabled="" type="checkbox"> Allow the player to use arrow keys (or similar) to select different cards in their hand.</li>
+<li><input disabled="" type="checkbox"> Display details of the currently selected card in a dedicated panel.</li>
+<li><input disabled="" type="checkbox"> A specific key press (e.g., ‘p’ for Play) should trigger the “play card” action for the selected card.</li>
+<li><input disabled="" type="checkbox"> The TUI must update to show the card moving from the hand to the battlefield.</li>
+<li><input disabled="" type="checkbox"> Provide feedback in a game log if an action is invalid (e.g., “Not enough mana”).</li>
+<li><input disabled="" type="checkbox"> Implement a key press (e.g., ‘e’ for End) to end the current turn.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-6-combat-system"><a class="header" href="#feature-6-combat-system">Feature 6: Combat System</a></h1>
+<h2 id="user-story-61-attack-with-creatures"><a class="header" href="#user-story-61-attack-with-creatures">User Story 6.1: Attack with Creatures</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to attack the opponent with my creatures<br><strong>So that</strong> I can deal damage and reduce their health</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Only creatures on battlefield can attack</li>
+<li><input disabled="" type="checkbox"> Creatures must have been on battlefield since before current turn (summoning sickness)</li>
+<li><input disabled="" type="checkbox"> Select target (opponent or opposing creature)</li>
+<li><input disabled="" type="checkbox"> Calculate damage (creature power attribute)</li>
+<li><input disabled="" type="checkbox"> Apply damage to target</li>
+<li><input disabled="" type="checkbox"> Update creature state after attack (tapped/exhausted)</li>
+<li><input disabled="" type="checkbox"> Remove destroyed creatures (health ≤ 0) to graveyard</li>
+</ul>
+<h2 id="user-story-62-block-attacks-with-creatures"><a class="header" href="#user-story-62-block-attacks-with-creatures">User Story 6.2: Block Attacks with Creatures</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to block incoming attacks with my creatures<br><strong>So that</strong> I can prevent or reduce damage to my health</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Available creatures can be assigned to block</li>
+<li><input disabled="" type="checkbox"> Blocking creature deals damage to attacking creature</li>
+<li><input disabled="" type="checkbox"> Both creatures may be destroyed depending on power values</li>
+<li><input disabled="" type="checkbox"> Update creature health values</li>
+<li><input disabled="" type="checkbox"> Move destroyed creatures to graveyard</li>
+</ul>
+<h2 id="user-story-63-apply-card-keywords"><a class="header" href="#user-story-63-apply-card-keywords">User Story 6.3: Apply Card Keywords</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> cards with special abilities to trigger correctly<br><strong>So that</strong> strategic card choices matter</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Intercept</strong>: Creatures can block even if not normally able</li>
+<li><input disabled="" type="checkbox"> <strong>Stealth</strong>: Creatures cannot be blocked (unblockable)</li>
+<li><input disabled="" type="checkbox"> <strong>Flying</strong>: Creatures can only be blocked by flying creatures</li>
+<li><input disabled="" type="checkbox"> Keyword effects execute at correct game phase</li>
+<li><input disabled="" type="checkbox"> Keyword interactions stack correctly</li>
+</ul>
+<hr>
+<h2 id="user-story-64-execute-combat-in-tui"><a class="header" href="#user-story-64-execute-combat-in-tui">User Story 6.4: Execute Combat in TUI</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to perform combat actions through the TUI<br><strong>So that</strong> I can attack my opponent and defend against their attacks.</p>
+<p><strong>TUI Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Implement a “Combat Phase” mode in the TUI, activated by a key press (e.g., ‘a’ for Attack).</li>
+<li><input disabled="" type="checkbox"> Allow selection of creatures on the player’s battlefield to be marked as attackers.</li>
+<li><input disabled="" type="checkbox"> Once attackers are chosen, allow the player to select a target for each attacker (the opponent or a specific enemy creature).</li>
+<li><input disabled="" type="checkbox"> For the defending player, allow them to select their available creatures and assign them as blockers to specific attackers.</li>
+<li><input disabled="" type="checkbox"> The TUI must clearly show which creatures are attacking, which are blocking, and what the expected outcomes are.</li>
+<li><input disabled="" type="checkbox"> After combat is confirmed, update the TUI to reflect new health totals, tapped/exhausted states, and move any destroyed creatures to the graveyard.</li>
+<li><input disabled="" type="checkbox"> Display card keywords (like Flying, Stealth) in the card detail panel to inform combat decisions.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-7-game-ending--win-conditions"><a class="header" href="#feature-7-game-ending--win-conditions">Feature 7: Game Ending &amp; Win Conditions</a></h1>
+<h2 id="user-story-71-determine-game-winner"><a class="header" href="#user-story-71-determine-game-winner">User Story 7.1: Determine Game Winner</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to know when the game ends and who wins<br><strong>So that</strong> matches have clear outcomes</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Win condition: Reduce opponent health to 0 or below</li>
+<li><input disabled="" type="checkbox"> Win condition: Opponent decks out (mills to 0 cards)</li>
+<li><input disabled="" type="checkbox"> Game state transitions to “Ended” when win condition met</li>
+<li><input disabled="" type="checkbox"> Display winner and ending reason</li>
+<li><input disabled="" type="checkbox"> Prevent further actions after game ends</li>
+<li><input disabled="" type="checkbox"> Support concession/surrender</li>
+</ul>
+<hr>
+<h2 id="user-story-72-display-game-outcome-in-tui"><a class="header" href="#user-story-72-display-game-outcome-in-tui">User Story 7.2: Display Game Outcome in TUI</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to be clearly notified of the game’s outcome in the TUI<br><strong>So that</strong> I know who won and why.</p>
+<p><strong>TUI Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> When a win condition is met, display a prominent “Game Over” message.</li>
+<li><input disabled="" type="checkbox"> The message should clearly state the winner and the reason for the win (e.g., “Player 2’s health reached 0”, “Player 1 ran out of cards”).</li>
+<li><input disabled="" type="checkbox"> After the game ends, the TUI should lock, preventing any further game actions.</li>
+<li><input disabled="" type="checkbox"> Provide the user with simple menu options after the game ends, such as “Play Again” or “Quit to Main Menu”.</li>
+<li><input disabled="" type="checkbox"> A key press (e.g. ‘c’) should allow a player to concede the game, triggering the game-end sequence.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="feature-8-game-state-persistence-future"><a class="header" href="#feature-8-game-state-persistence-future">Feature 8: Game State Persistence (Future)</a></h1>
+<h2 id="user-story-81-save-game-state"><a class="header" href="#user-story-81-save-game-state">User Story 8.1: Save Game State</a></h2>
+<p><strong>As a</strong> player<br><strong>I want</strong> to save my game progress<br><strong>So that</strong> I can resume later</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Serialize complete game state</li>
+<li><input disabled="" type="checkbox"> Save player boards, hands, decks</li>
+<li><input disabled="" type="checkbox"> Save game log of moves</li>
+<li><input disabled="" type="checkbox"> Load game from save file</li>
+<li><input disabled="" type="checkbox"> Validate save file integrity</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="non-functional-requirements"><a class="header" href="#non-functional-requirements">Non-Functional Requirements</a></h1>
+<h2 id="performance"><a class="header" href="#performance">Performance</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Handle 100+ cards in game state efficiently</li>
+<li><input disabled="" type="checkbox"> Blueprint loading completes in &lt; 100ms</li>
+<li><input disabled="" type="checkbox"> Turn execution completes in &lt; 1s</li>
+<li><input disabled="" type="checkbox"> Memory footprint &lt; 50MB for full game</li>
+</ul>
+<h2 id="reliability"><a class="header" href="#reliability">Reliability</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> All game state transitions are atomic</li>
+<li><input disabled="" type="checkbox"> Invalid game states are impossible to reach</li>
+<li><input disabled="" type="checkbox"> Card ID conflicts are detected and prevented</li>
+<li><input disabled="" type="checkbox"> Deck validation prevents impossible compositions</li>
+</ul>
+<h2 id="code-quality"><a class="header" href="#code-quality">Code Quality</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> All public APIs have documentation</li>
+<li><input disabled="" type="checkbox"> Unit tests for core game logic (60%+ coverage)</li>
+<li><input disabled="" type="checkbox"> Modular architecture (easily add new card types)</li>
+<li><input disabled="" type="checkbox"> Clear separation: Domain logic vs. State management vs. UI</li>
+</ul>
+<h2 id="extensibility"><a class="header" href="#extensibility">Extensibility</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Support custom card abilities (pluggable keyword system)</li>
+<li><input disabled="" type="checkbox"> Easy to add new domains/resources</li>
+<li><input disabled="" type="checkbox"> Support for future expansion sets</li>
+<li><input disabled="" type="checkbox"> Ability to add new game phases without refactoring</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
