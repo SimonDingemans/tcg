@@ -1,0 +1,13 @@
+[book]
+title = "TCG Project Documentation"
+authors = ["Gemini"]
+description = "Documentation for the TCG project."
+
+[output.html]
+git-repository-url = "https://github.com/SimonDingemans/tcg"
+edit-url-template = "https://github.com/SimonDingemans/tcg/edit/main/{path}"
+
+[output.html.fold]
+enable = true
+level = 1
+
