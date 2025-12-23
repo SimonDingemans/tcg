@@ -89,4 +89,77 @@
             Crush,
         ],
     ),
+    (
+        id: "volcano_set_006",
+        name: "Volcanic Vent",
+        description: "A fissure in the earth that bleeds raw power.",
+        domain: Volcano,
+        rarity: Common,
+        card_type: Land(
+            resource: Volcano,
+            amount: 1,
+        ),
+        cost: [],
+        keywords: [],
+    ),
+    (
+        id: "volcano_set_007",
+        name: "Lava Burst",
+        description: "Unleash a torrent of molten rock upon your foes.",
+        domain: Volcano,
+        rarity: Uncommon,
+        card_type: Spell(
+            action: Damage(
+                target: Creature,
+                amount: 3,
+            ),
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Volcano, 2),
+        ],
+        keywords: [],
+    ),
+    (
+        id: "volcano_set_008",
+        name: "Volcanic Smog",
+        description: "A cloud of thick ash that chokes the battlefield.",
+        domain: Volcano,
+        rarity: Common,
+        card_type: Spell(
+            action: GrantKeyword(
+                target: Creature,
+                keyword: Stealth(
+                    duration: Turns(1),
+                ),
+                duration: Turns(1),
+            ),
+        ),
+        cost: [
+            Specific(Volcano, 1),
+        ],
+        keywords: [
+            Quick,
+        ],
+    ),
+    (
+        id: "volcano_set_009",
+        name: "Magma Core",
+        description: "The heart of the mountain, pulsing with fiery energy.",
+        domain: Volcano,
+        rarity: Rare,
+        card_type: Artifact(
+            kind: Static(
+                effect: GlobalStatBoost(
+                    target: AlliedCreatures,
+                    power: 1,
+                    health: 0,
+                ),
+            ),
+        ),
+        cost: [
+            Neutral(3),
+        ],
+        keywords: [],
+    ),
 ]

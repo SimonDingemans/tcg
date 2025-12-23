@@ -17,7 +17,7 @@
 - [ x ] Load blueprints at game startup
 - [ x ] Cache blueprints in memory
 - [ x ] Support multiple sets (Forest, Volcanic)
-- [ ] Validate blueprint structure
+- [ x ] Validate blueprint structure
 
 ## User Story 1.2: Create Card Variants
 **As a** game designer  
@@ -25,7 +25,9 @@
 **So that** card pool diversity is supported
 
 **Requirements:**
-- [ ] Each card can have multiple rarity versions
-- [ ] Different rarities may have different stats/costs
+- ~~[ ] Each card can have multiple rarity versions~~
+  - Will be done in a later iteration
+- ~~[ ] Different rarities may have different stats/costs~~
+  - Will be done in a later iteration
 - [ x ] Deck building respects rarity limits if applicable
 - [ x ] Blueprints store rarity information

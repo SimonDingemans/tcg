@@ -14,7 +14,7 @@
             Specific(Forest, 1),
         ],
         keywords: [
-            Intercept, // This creature can cause itself to become the target of an attack or spell targeting an adjacent ally.
+            Intercept, 
             Stealth( duration: Turns(1) ),
         ], 
     ),
@@ -88,5 +88,80 @@
         keywords: [
             Stealth( duration: Turns(2) ),
         ], 
+    ),
+    (
+        id: "forest_set_006",
+        name: "Verdant Grove",
+        description: "A tranquil grove where the veil between worlds is thin.",
+        domain: Forest,
+        rarity: Common,
+        card_type: Land(
+            resource: Forest,
+            amount: 1,
+        ),
+        cost: [],
+        keywords: [],
+    ),
+    (
+        id: "forest_set_007",
+        name: "Herbal Remedy",
+        description: "A poultice of forest herbs that knits flesh and bone.",
+        domain: Forest,
+        rarity: Uncommon,
+        card_type: Spell(
+            action: Heal(
+                target: Creature,
+                amount: 4,
+            ),
+        ),
+        cost: [
+            Neutral(1),
+            Specific(Forest, 2),
+        ],
+        keywords: [],
+    ),
+    (
+        id: "forest_set_008",
+        name: "Rapid Growth",
+        description: "The forest's vitality surges, empowering one of its children.",
+        domain: Forest,
+        rarity: Common,
+        card_type: Spell(
+            action: ModifyStats(
+                target: Creature,
+                power: 2,
+                health: 2,
+                duration: Turns(1),
+            ),
+        ),
+        cost: [
+            Specific(Forest, 1),
+        ],
+        keywords: [
+            Quick,
+        ],
+    ),
+    (
+        id: "forest_set_009",
+        name: "Ancient Idol",
+        description: "A moss-covered idol that radiates a soothing energy.",
+        domain: Forest,
+        rarity: Rare,
+        card_type: Artifact(
+            kind: Activated(
+                cost: [
+                    Neutral(1),
+                    Specific(Forest, 1),
+                ],
+                action: Heal(
+                    target: Creature,
+                    amount: 2,
+                ),
+            ),
+        ),
+        cost: [
+            Neutral(2),
+        ],
+        keywords: [],
     ),
 ]

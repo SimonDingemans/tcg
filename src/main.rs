@@ -1,10 +1,7 @@
-use std::collections::HashMap;
+use crate::state::engine::GameEngine;
+use crate::domain::load::load_blueprints;
 
 mod domain;
-use domain::schema::CardBlueprint;
-
-use crate::{domain::schema::BlueprintId, state::engine::GameEngine};
-
 mod state;
 
 fn main() {
@@ -13,23 +10,18 @@ fn main() {
         include_str!("../blueprints/volcanic_set.ron"),
     ];
 
-    let mut blueprints: HashMap<BlueprintId, CardBlueprint> = HashMap::new();
-    for source in &blueprint_sources {
-        match ron::from_str::<Vec<CardBlueprint>>(source) {
-            Ok(cards) => {
-                for card in cards {
-                    blueprints.insert(card.id.clone(), card);
-                }
+    let blueprints = match load_blueprints(&blueprint_sources) {
+        Ok(bp) => bp,
+        Err(errors) => {
+            eprintln!("Failed to load card blueprints:");
+            for error in errors {
+                eprintln!("- {}", error);
             }
-            Err(e) => {
-                eprintln!("Failed to parse card database: {}", e);
-                return;
-            }
+            return;
         }
-    }
+    };
 
     let player_ids = ["Player".to_owned(), "AI".to_owned()];
-
 
     let mut game_engine = GameEngine::new(blueprints, player_ids);
 
@@ -38,11 +30,11 @@ fn main() {
     let p1_hand = game_engine.state.players[0].hand.list();
 
     for (instance_id, _) in p1_hand {
-        if let Some(_) = game_engine.state.entities.get(*instance_id) {
-            if let Some(blueprint) = game_engine.get_blueprint(*instance_id) {
+        if game_engine.state.entities.get(*instance_id).is_some()
+            && let Some(blueprint) = game_engine.get_blueprint(*instance_id) {
                 println!("Card Name: {}", blueprint.name);
                 println!("{:#?}", blueprint);
             }
-        }
     }
 }
+

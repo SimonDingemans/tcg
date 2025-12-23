@@ -19,9 +19,9 @@ pub enum GameStatus {
 
 #[derive(Debug)]
 pub enum GameResult {
-    PlayerHealthZero(PlayerId),
-    PlayerDeckedOut(PlayerId),
-    PlayerConceded(PlayerId)
+    HealthZero(PlayerId),
+    DeckedOut(PlayerId),
+    Conceded(PlayerId)
 }
 
 pub struct Turn {
