@@ -3,7 +3,7 @@ use std::collections::HashMap;
 mod domain;
 use domain::schema::CardBlueprint;
 
-use crate::{domain::schema::BlueprintId, state::{engine::GameEngine, ids::InstanceId}};
+use crate::{domain::schema::BlueprintId, state::engine::GameEngine};
 
 mod state;
 
@@ -32,11 +32,13 @@ fn main() {
 
 
     let mut game_engine = GameEngine::new(blueprints, player_ids);
+
     game_engine.initialize().unwrap();
+
     let p1_hand = game_engine.state.players[0].hand.list();
 
-    for (instance_id, amount) in p1_hand {
-        if let Some(card_instance) = game_engine.state.entities.get(*instance_id) {
+    for (instance_id, _) in p1_hand {
+        if let Some(_) = game_engine.state.entities.get(*instance_id) {
             if let Some(blueprint) = game_engine.get_blueprint(*instance_id) {
                 println!("Card Name: {}", blueprint.name);
                 println!("{:#?}", blueprint);

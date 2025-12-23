@@ -2,15 +2,18 @@ use std::collections::HashMap;
 
 use thiserror::Error;
 
-use crate::{domain::schema::{BlueprintId, CardBlueprint, Environment}, state::{board::GameState, cards::{deck::{Deck, DeckError}, entities::CardInstance, hand::Hand}, ids::{IdError, IdManager, InstanceId}, players::player::{PlayerId, PlayerState}}};
+use crate::{domain::schema::{BlueprintId, CardBlueprint, Environment}, state::{cards::{deck::{Deck, DeckError}, entities::CardInstance, hand::Hand}, game::{GameError, GameState}, ids::{IdError, IdManager, InstanceId}, players::player::{PlayerId, PlayerState}}};
 
 #[derive(Error, Debug)]
-pub enum GameError {
+pub enum EngineError {
     #[error("Deck error: {0}")]
     Deck(#[from] DeckError),
     
     #[error("ID error: {0}")]
     Id(#[from] IdError),
+
+    #[error("Match error: {0}")]
+    Transition(#[from] GameError)
 }
 
 pub struct GameEngine {
@@ -56,7 +59,7 @@ impl GameEngine {
         }
     }
 
-    pub fn initialize(&mut self) -> Result<(), GameError> {
+    pub fn initialize(&mut self) -> Result<(), EngineError> {
         let player_ids: Vec<_> = self.state.players.iter().map(|p| p.id.clone()).collect();
 
         for player_id in player_ids {
@@ -67,7 +70,7 @@ impl GameEngine {
                 for _ in 0..Self::INITIAL_HAND_SIZE {
                     match player.deck.draw() {
                         Ok(id) => blueprints.push(id),
-                        Err(e) => return Err(GameError::Deck(e)),
+                        Err(e) => return Err(EngineError::Deck(e)),
                     }
                 }
                 blueprints
@@ -85,13 +88,18 @@ impl GameEngine {
             }
         }
 
+        match self.state.transition(None) {
+            Ok(_) => (),
+            Err(e) => return Err(EngineError::Transition(e))
+        }
+
         Ok(())
     }
 
-    pub fn spawn_instance(&mut self, blueprint_id: BlueprintId, owner: PlayerId) -> Result<InstanceId, GameError> {
+    pub fn spawn_instance(&mut self, blueprint_id: BlueprintId, owner: PlayerId) -> Result<InstanceId, EngineError> {
         let card_instance = match self.state.ids.allocate() {
             Ok(id) => CardInstance::new(id, blueprint_id, owner),
-            Err(err) => return Err(GameError::Id(err))
+            Err(e) => return Err(EngineError::Id(e))
         };
 
         let id = card_instance.id;
@@ -109,7 +117,7 @@ impl GameEngine {
 
         match player_state.add_to_battlefield(index, instance_id) {
             Ok(_) => (),
-            Err(err) => eprintln!("{}", err)
+            Err(e) => eprintln!("{}", e)
         }
     }
 

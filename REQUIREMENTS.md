@@ -14,8 +14,8 @@
   - [ x ] Draw 5 cards into hand from deck
   - [ x ] Empty battlefield
   - [ x ] Empty graveyard
-- [ ] Set game state to active
-- [ ] Determine starting player (player 1 or random)
+- [ x ] Set game state to active
+- [ x ] Determine starting player (player 1 or random)
 
 ### User Story 1.2: Create Player Decks
 **As a** player  
